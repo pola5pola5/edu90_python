@@ -46,6 +46,10 @@ if __name__ == '__main__':
     g = [[] for _ in range(N+1)] # 隣接リスト
     for _ in range (N-1):
         a,b = [int(x) for x in input().split(' ')]
+        # x,y = map(int,input().split())
+        # ↑違う取得方法
+
+        
         # それぞれの都市に隣接している都市をリスト化
         g[a].append(b)
         g[b].append(a)

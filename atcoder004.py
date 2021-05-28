@@ -22,7 +22,7 @@ H 行 W 列のマス目があります。上から i (1 ≦ i ≦ H) 行目、�
 41 41 39 43
 
 """
-import numpy as np
+# import numpy as np #pypyだと使えない
 
 if __name__ == '__main__':
     H,W = [int(x) for x in input().split(" ")]
@@ -31,10 +31,17 @@ if __name__ == '__main__':
     for _ in range (H):
         a = [int(x) for x in input().split(" ")]
         A.append(a)
+    # Column = np.sum(A,axis=0)
+    # Row = np.sum(A,axis=1)
+    Column = []
+    Row = []
+    for i in range (H):
+        r = 0
+        for j in range (W):
+            r += A[j][i]
+        Column.append(r)
+        Row.append(sum(A[i]))
 
-    Column = np.sum(A,axis=0)
-    Row = np.sum(A,axis=1)
-    
     for i in range(H):
         for j in range(W):
             B[i][j] = Row[i] + Column[j] - A[i][j]
